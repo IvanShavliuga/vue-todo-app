@@ -1,7 +1,10 @@
 <template>
-  <div>
+  <div class="flex">
+    <div class="flex-elem">
     <div class="logo">&nbsp;</div>
     <h6>Test. Views this component</h6>
+    </div>
+    <div class="flex-elem">
     <ul v-for="todo in state.todos.filter(shoudShowTodo)">
       <li v-bind:class="{ complete: todo.done }">
         {{ todo.text }}
@@ -13,9 +16,10 @@
     </form>
     <label class="show-completed">
       Show completed items?
-      <input type="checkbox" v-model="statedata.showDone">
+      <input type="checkbox" id="showcomplete" v-model="statedata.showDone">
     </label>
     <p>Test this text</p>
+    </div>
   </div>
   
 </template>
@@ -51,12 +55,20 @@
  {
   background-color: yellow;
 }
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 100px;
+}
+.flex-elem {
+  margin-left: 30px;
+}
   body {
     font-family: Helvetica, sans-serif;
     color: darkslategray;
-    font-size: 1.4em;
-    margin: 1.4em;
-    width: 22em;
+    font-size: 1.2em;
+    width: 40em;
     position: relative;
   }
   
@@ -64,12 +76,17 @@
     margin-top: 1em;
     padding: 0.8em;
     width: 100%;
-    font-size: 0.7em;
+    font-size: 0.9em;
   }
 
   input[type=checkbox] {
     position: absolute;
     right: 0;
+    padding: 1em;
+    cursor: pointer;
+  }
+  #showcomplete {
+    position: static;
     padding: 1em;
     cursor: pointer;
   }
@@ -81,13 +98,9 @@
 
   li {
     list-style-type: none;
-    padding: 1em 0 1em 0;
-    border-bottom: 1px solid lightblue;
+    padding: 0.2em 0 0.2em 0;
+    border-bottom: 1px solid blue;
     position: relative;
-  }
-
-  li input {
-    transform: scale(1.8);
   }
 
   ul {
@@ -99,18 +112,13 @@
   }
   
   .complete {
-    color: gainsboro;
+    color: #d0d;
     text-decoration: line-through;
     font-style: italic;
   }
 
   .show-completed {
     font-size: 1rem;
-    color: slategray
+    color: #909;
   }
-
-  .show-completed input {
-    transform: scale(1.4)
-  }
-
 </style>
