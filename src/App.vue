@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="logo">&nbsp;</div>
     <h6>Test. Views this component</h6>
     <ul v-for="todo in state.todos.filter(shoudShowTodo)">
       <li v-bind:class="{ complete: todo.done }">
@@ -71,6 +72,11 @@
     right: 0;
     padding: 1em;
     cursor: pointer;
+  }
+  .logo {
+    background:url('/../assets/images/logo.png'); 
+    width:200px;
+    height:200px; 
   }
 
   li {
