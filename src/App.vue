@@ -1,6 +1,7 @@
 <template>
   <div>
-    <ul v-for="todo in $data.todos.filter(shoudShowTodo)">
+    <h6>Test. Views this component</h6>
+    <ul v-for="todo in state.todos.filter(shoudShowTodo)">
       <li v-bind:class="{ complete: todo.done }">
         {{ todo.text }}
         <input type="checkbox" v-model="todo.done">
@@ -11,9 +12,11 @@
     </form>
     <label class="show-completed">
       Show completed items?
-      <input type="checkbox" v-model="showDone">
+      <input type="checkbox" v-model="statedata.showDone">
     </label>
+    <p>Test this text</p>
   </div>
+  
 </template>
 
 <script>
@@ -21,11 +24,11 @@
     methods: {
       handleAddTodo(e) {
         e.preventDefault()
-        this.$data.todos.push({ text: this.input, done: false })
+        this.statedata.todos.push({ text: this.input, done: false })
         this.input = ''
       },
       shoudShowTodo(todo) {
-        if (this.$data.showDone) {
+        if (this.statedata.showDone) {
           return true
         } else {
           return !todo.done
@@ -33,13 +36,20 @@
       }
     },
     data() {
-      return this.$props.state
+      return {
+         statedata:this.$props.state,
+         input:''
+      }         
     },
     props:['state']
   }
 </script>
 
 <style>
+  p::selection, p::-moz-selection
+ {
+  background-color: yellow;
+}
   body {
     font-family: Helvetica, sans-serif;
     color: darkslategray;
@@ -48,7 +58,7 @@
     width: 22em;
     position: relative;
   }
-
+  
   input[type=text] {
     margin-top: 1em;
     padding: 0.8em;
