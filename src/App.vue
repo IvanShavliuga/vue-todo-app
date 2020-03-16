@@ -14,7 +14,9 @@
       Show completed items?
       <input type="checkbox" v-model="statedata.showDone">
     </label>
+    <p>Test this text</p>
   </div>
+  
 </template>
 
 <script>
@@ -44,6 +46,10 @@
 </script>
 
 <style>
+  p::selection, p::-moz-selection
+ {
+  background-color: yellow;
+}
   body {
     font-family: Helvetica, sans-serif;
     color: darkslategray;
@@ -52,7 +58,7 @@
     width: 22em;
     position: relative;
   }
-
+  
   input[type=text] {
     margin-top: 1em;
     padding: 0.8em;
