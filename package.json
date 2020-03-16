@@ -1,12 +1,12 @@
 {
   "name": "todomvc-vue",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Simple todo app with vue",
   "main": "index.js",
   "scripts": {
     "serve": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
-  "author": "alfrizp",
+  "author": "iv2 <iva.drakon.nov@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "babel": "^6.23.0",
