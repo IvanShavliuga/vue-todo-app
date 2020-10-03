@@ -4,7 +4,7 @@
   "description": "Simple todo app with vue",
   "main": "index.js",
   "scripts": {
-    "serve": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "serve": "webpack-dev-server --hot"
   },
   "author": "iv2 <iva.drakon.nov@gmail.com>",
   "license": "ISC",
